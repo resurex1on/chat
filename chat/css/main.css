@@ -1,0 +1,57 @@
+#message-box{
+    height: 1080px;
+    background-color:#757575;
+    margin-left:2px;
+}
+
+#searchChat{
+    height: 50px;
+    background-color: inherit;
+    margin-right: 0;
+    padding: 0;
+    padding-right: 5px;
+    margin-top:2px;
+}
+
+#avatar{
+    float: left;
+    width: 60px;
+    height: 60px;
+    margin: 5px;
+}
+
+#profile{
+    height: 100px;
+    background-image: url(../img/1.png);
+    margin-right: 0;
+    padding-right:0;
+}
+
+#search{
+    background-color:#242f3d;
+    float: left;
+    border:0;
+    width: 75%;
+    height: 70%;
+    margin-left: 15px;
+}
+
+#panel{
+    padding:0;
+    height: 1080px;
+    background-color:#17212b;
+}
+
+#profile-name{
+    display: inline-block;
+    margin-left:10px;
+    padding-top:15px;
+    color: #908fa1;
+}
+
+#btnFav{
+    float:right;
+    margin-left:2px;
+    width: 19%;
+    height: 35px;
+}
