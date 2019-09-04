@@ -1,7 +1,8 @@
 #message-box{
     height: 1080px;
-    background-color:#757575;
+    background-color:#242f3d;
     margin-left:2px;
+    padding: 0;
 }
 
 #searchChat{
@@ -91,4 +92,41 @@
 #chat:hover{
     transition: 0.3s;
     background-color: #2b5278;
+}
+
+#messAvatar{
+    float: left;
+    width: 50px;
+    height: 50px;
+    margin-left:8px;
+    margin-top:5px;
+}
+
+#message{
+    padding: 0;
+    margin-left:5px;
+    margin-top:5px;
+    margin-right:5px;
+    border-radius: 20px;
+    background-color:#17212b;
+    min-width:250px;
+    max-width: 98.5%;
+    color:#757575;
+    height: auto;
+}
+
+#message h6{
+    margin-left:5px;
+    margin-top:5px;
+    display: inline-block;
+    margin-bottom:0;
+}
+
+#message p{
+    max-width: 90%;
+    min-width: 10%;
+    font-size:14px;
+    margin-left:10px;
+    display: inline-block;
+    margin-bottom: 8px;
 }
