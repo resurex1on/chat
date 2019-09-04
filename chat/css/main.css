@@ -112,13 +112,12 @@ body{
 
 #message{
     padding: 0;
-    margin-left:5px;
+    margin-left:6px;
     margin-top:5px;
-    margin-right:5px;
     border-radius: 20px;
     background-color:#17212b;
-    min-width:250px;
-    max-width: 99.5%;
+    min-width:315px;
+    max-width: 99%;
     color:#e8ded4;
     height: auto;
 }
@@ -132,7 +131,7 @@ body{
 }
 
 #message p{
-    max-width: 95%;
+    max-width: 90%;
     min-width: 10%;
     font-size:14px;
     margin-left:10px;
@@ -176,4 +175,10 @@ body{
     background-color: #2b5278;
     transition: 0.3s;
 
+}
+
+#content{
+    margin-left: 55px;
+    display: block;
+    width: auto;
 }

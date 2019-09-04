@@ -1,0 +1,45 @@
+body{
+    font-family:'Montserrat', sans-serif;
+    background-image: url(https://images.wallpaperscraft.ru/image/fraktal_zhidkost_volnistyj_146997_1920x1080.jpg);
+    background-size: cover;
+}
+
+#winAuth{
+    border-radius: 20px;
+    padding: 60px 60px 40px 60px;
+    margin: 0 auto;
+    margin-top:5%;
+    width: 560px;
+    opacity: 0.9;
+    background-color: #17212b;
+    height: auto;
+    color: #e8ded4;
+}
+
+#winAuth h1{
+    text-align: center;
+    color:#e8ded4;
+    padding-bottom: 30px;
+}
+
+#inp{
+    background-color: #272235;
+    border: 0;
+    color: black;
+    outline: none;
+    box-shadow: none;
+}
+
+#winAuth button{
+    border-radius: 5px;
+    width: 100%;
+    margin-top: 30px;
+    height: 48px;
+    border:0;
+    box-shadow: none;
+}
+
+#winAuth button:hover{
+    background-color: #13101b;
+    transition: 0.3s;
+}
