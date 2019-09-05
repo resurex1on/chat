@@ -43,3 +43,8 @@ body{
     background-color: #13101b;
     transition: 0.3s;
 }
+
+#winAuth a{
+    color: #3abaf5;
+    font-size: 14px;
+}
