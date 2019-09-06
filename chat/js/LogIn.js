@@ -1,13 +1,16 @@
-$("#btnLog").click(function(){
-    var data = new FormData();
-data.append( "json", JSON.stringify( payload ) );
-    let data ={
-        login: $("#inplog").text(),
-       password: $("#inppas").text()
-    }
-   fetch("/",{
-    method: "POST",
-    body: data
-})
+$("#btnLog").click(function () {
+    fetch("/logIn", {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body:JSON.stringify({
+            user:{
+                login: $("#inplog").val(),
+                password: $("#inppas").val()
+            }
+            
+        })
+    })
 
 })

@@ -1,23 +1,16 @@
 const express = require('express')
 const app = express()
 const MongoClient = require('mongodb').MongoClient
-// const logIn = require('./LogIn')
+const bodyparser = require('body-parser')
 
 let path = __dirname
 path = path.substring(0, path.length - 2)
 
-app.use('/logIn/post', function(err, body){
-    if(err){
+app.post('/logIn',bodyparser.json())
 
-    }else{
-        console.log(body)
-    }
-    
+app.post('/logIn', function (req, res, next) {
+    console.log(req.body)
 })
-
-// app.use(app.document.getElementById('btnLog').addEventListener('submit', async (e) => function(){
-//     console.log('work')
-// }))
 
 app.use(express.static(path + '/'))
 MongoClient.connect('mongodb://localhost:27017/chatbd', function (err, database) {
@@ -27,8 +20,5 @@ MongoClient.connect('mongodb://localhost:27017/chatbd', function (err, database)
     app.listen(8000, function () {
 
     })
-    console.log([express.static(path + '/')])
-
-    // logIn.startest();
 })
 
