@@ -10,7 +10,7 @@ body{
     margin: 0 auto;
     margin-top:5%;
     width: 560px;
-    opacity: 0.9;
+    opacity: 0.97;
     background-color: #17212b;
     height: auto;
     color: #e8ded4;
@@ -22,7 +22,15 @@ body{
     padding-bottom: 30px;
 }
 
-#inp{
+#inplog{
+    background-color: #272235;
+    border: 0;
+    color: black;
+    outline: none;
+    box-shadow: none;
+}
+
+#inppas{
     background-color: #272235;
     border: 0;
     color: black;
