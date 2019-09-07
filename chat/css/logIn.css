@@ -38,6 +38,15 @@ body{
     box-shadow: none;
 }
 
+#inpsub{
+    background-color: #272235;
+    border: 0;
+    color: black;
+    outline: none;
+    box-shadow: none;
+}
+
+
 #winAuth button{
     border-radius: 5px;
     width: 100%;

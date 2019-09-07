@@ -4,13 +4,10 @@ $("#btnLog").click(function () {
         headers: {
             'Content-Type': 'application/json'
         },
-        body:JSON.stringify({
-            user:{
-                login: $("#inplog").val(),
-                password: $("#inppas").val()
-            }
-            
+        body: JSON.stringify({
+            login: $("#inplog").val(),
+            password: $("#inppas").val()
+
         })
     })
-
 })
