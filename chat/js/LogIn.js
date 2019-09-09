@@ -11,6 +11,7 @@ $("#btnLog").click(async function () {
         })  
     })
     let id = await value.json()
+    
     if(id !== undefined){
         location.replace('/index.html')
         localStorage.setItem('key', id)
