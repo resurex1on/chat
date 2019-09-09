@@ -10,9 +10,10 @@ $("#btnLog").click(async function () {
 
         })  
     })
-    let com = await value.json()
-    if(com !== undefined){
+    let id = await value.json()
+    if(id !== undefined){
         location.replace('/index.html')
+        localStorage.setItem('key', id)
     }
     
 })

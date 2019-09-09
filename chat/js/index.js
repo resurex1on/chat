@@ -16,8 +16,7 @@ app.post('/logIn', bodyparser.json())
 app.post('/logIn', async function (req, res, next) {
 
     let value = JSON.stringify(await helper.auth(req.body, db, res))
-    storage.setItem('key', value)
-    res.send(storage.getItem('key'))
+    res.send(value)
 
 })
 
@@ -38,11 +37,10 @@ MongoClient.connect('mongodb://localhost:27017/chatbd', function (err, database)
         return console.log(err)
     }
 
-    db = database.db('users');
+    db = database.db('users')
 
     app.listen(8000, function () {
 
     })
-
 })
 
