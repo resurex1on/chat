@@ -3,25 +3,29 @@ const app = express()
 const MongoClient = require('mongodb').MongoClient
 const bodyparser = require('body-parser')
 const helper = require('./helper')
-const storage = require('local-storage')
+const storage = require('localStorage')
 const request = require('request')
+const async = require('async')
+const await = require('await')
 
 let db
 let path = __dirname
 path = path.substring(0, path.length - 2)
 
 app.post('/logIn', bodyparser.json())
-app.post('/logIn', function (req, res, next) {
-    storage.get({
-        key: helper.auth(req.body, db, res)
-    })
+app.post('/logIn', async function (req, res, next) {
+
+    let value = JSON.stringify(await helper.auth(req.body, db, res))
+    storage.setItem('key', value)
+    res.send(storage.getItem('key'))
+
 })
 
 app.post('/signUp', bodyparser.json())
-app.post('/signUp', function (req, res, next) {
+app.post('/signUp', async function (req, res, next) {
     let user = helper.reg(req.body, db, res)
-    storage.get({
-        key: helper.auth(user, db, res)
+    await storage.get({
+        key: await helper.auth(user, db, res)
     })
 
     console.log(storage.key)

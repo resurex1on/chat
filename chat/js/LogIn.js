@@ -1,5 +1,5 @@
-$("#btnLog").click(function () {
-    fetch("/logIn", {
+$("#btnLog").click(async function () {
+    let value = await fetch("/logIn", {
         method: "POST",
         headers: {
             'Content-Type': 'application/json'
@@ -8,6 +8,11 @@ $("#btnLog").click(function () {
             login: $("#inplog").val(),
             password: $("#inppas").val()
 
-        })
+        })  
     })
+    let com = await value.json()
+    if(com !== undefined){
+        location.replace('/index.html')
+    }
+    
 })

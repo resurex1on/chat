@@ -10,7 +10,7 @@ body{
     margin: 0 auto;
     margin-top:5%;
     width: 560px;
-    opacity: 0.97;
+    opacity: 0.95;
     background-color: #17212b;
     height: auto;
     color: #e8ded4;
@@ -25,7 +25,7 @@ body{
 #inplog{
     background-color: #272235;
     border: 0;
-    color: black;
+    color: #e8ded4;
     outline: none;
     box-shadow: none;
 }
@@ -33,7 +33,7 @@ body{
 #inppas{
     background-color: #272235;
     border: 0;
-    color: black;
+    color: #e8ded4;
     outline: none;
     box-shadow: none;
 }
@@ -41,7 +41,7 @@ body{
 #inpsub{
     background-color: #272235;
     border: 0;
-    color: black;
+    color: #e8ded4;
     outline: none;
     box-shadow: none;
 }

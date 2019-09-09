@@ -1,22 +1,32 @@
 const express = require('express')
 const MongoClient = require('mongodb').MongoClient
+const async = require('async')
 
 module.exports = {
-    auth(user, db, resp) {
+    async auth(user, db, resp) {
+        
 
-        db.collection('users').find({}).toArray(function (err, res) {
-            if (err) {
-                res.status(500)
-            } else {
-                let val = check(res, user)
-
-                if (val === false)
-                    return val
-                else
-                    return val
-
-            }
-        })
+        return new Promise((resolve,reject) =>
+        {
+            db.collection('users').find({}).toArray( async function (err, res) {
+                if (err) {
+                    res.status(500)
+                } else {
+                    let val = await check(res, user)
+    
+                    if (val === false)
+                        return val
+                    else
+                    {
+                        resolve(val)
+                    }
+                        
+    
+                }
+    
+            })
+        }) 
+        
 
         async function check(users, user) {
             let count = 0
@@ -35,7 +45,7 @@ module.exports = {
         }
     },
 
-    reg(user, db, users) {
+    async reg(user, db, users) {
         db.collection('users').find({}).toArray(function (err, res) {
             if (err) {
                 res.status(500)
@@ -56,7 +66,7 @@ module.exports = {
             }
         })
 
-        function check(users, user) {
+        async function check(users, user) {
             let count = 0
 
             for (const i of users) {
