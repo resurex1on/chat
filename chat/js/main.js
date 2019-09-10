@@ -1,31 +1,28 @@
 let val = localStorage.getItem('key')
 
-if (val === null || val === undefined) {
-    location.replace('logIn.html')
-} else {
-    let value =  fetch("/getData", {
-        method: "POST",
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            id: val
+async function getData(val) {
+    if (val === null || val === undefined) {
+        location.replace('logIn.html')
+    } else {
+        let value =await  fetch("/getData", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                id: val
+            })
         })
-    })
+        return await value.json()
+    } 
 }
 
-async function getData(){
-    let data = await fetch("/getData", {
-        method: "POST",
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            id: localStorage.getItem('key')
-        })
-    })
-    data = data.json()
-}
+let data = getData(val)
+
+// $("#panel").
+
+
+
 
 $("#btnSend").click(async function () {
     let value = await fetch("/send", {

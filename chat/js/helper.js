@@ -4,15 +4,43 @@ const async = require('async')
 
 module.exports = {
 
-    async getData(id, db) {
-        let friends = db.collection('friends').find({}).toArray(async function (err, res) { if (err) res.status(500); return (res) })
-        let users = db.collection('users').find({}).toArray(async function (err, res) { if (err) res.status(500); return (val) })
-        let name
+    async getUsers(dbUs) {
+        return new Promise((resolve, reject) => {
+            dbUs.collection('users').find({}).toArray(async function (err, res) {
+                if (err)
+                    res.status(500)
+                else
+                    resolve(res)
+            })
+        })
+    },
+
+    async getFriends(dbFr) {
+        return new Promise((resolve, reject) => {
+            dbFr.collection('friends').find({}).toArray(async function (err, res) {
+                if (err)
+                    res.status(500)
+                else
+                    resolve(res)
+            })
+        })
+    },
+
+    async getData(id, dbFr, dbUs) {
+
+        let friends = await this.getFriends(dbFr)
+        let users = await this.getUsers(dbUs)
+
+        let userData = []
         let friendsData = []
+        let idFriend = []
 
         for (const i of users) {
-            if (i['_id'] === id)
-                name = i['login']
+            if (i['_id'] == id)
+                userData.push({
+                    name: i['login'],
+                    img: i['img']
+                })
         }
 
         for (const j of friends) {
@@ -22,6 +50,44 @@ module.exports = {
                     second: j['second']
                 })
         }
+
+        
+
+        for (const j of friendsData) {
+            if (j['first'] === id) {
+                idFriend.push({
+                    idFriend: j['first']
+                })
+            } else {
+                idFriend.push({
+                    idFriend: j['second']
+                })
+            }
+
+        }
+
+        let listFriends = []
+        for (let i = 0; i < idFriend.length; i++) {
+            
+            for (const j of users) {
+                if (j['_id'] == idFriend[i]['idFriend'])
+                {
+                    console.log('work')
+                    await listFriends.push({
+                        name: j['login'],
+                        img: j['img']
+                    })
+                }
+                   
+            }
+        }
+        console.log(userData)
+       
+        return {
+            user: userData,
+            friends: friendsData
+        }
+
     },
 
     async send(message, db) {
@@ -51,10 +117,7 @@ module.exports = {
                     else {
                         resolve(val)
                     }
-
-
                 }
-
             })
         })
 

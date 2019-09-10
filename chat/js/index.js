@@ -35,8 +35,8 @@ app.post('/signUp', async function (req, res, next) {
 
 app.post('/getData', bodyparser.json())
 app.post('/getData', async function (req, res, next) {
-    let value = JSON.stringify(await helper.getData(localStorage.getItem('key'), dbFriends))
 
+    let value = JSON.stringify(await helper.getData(req.body.id, dbFriends, dbUsers))
     res.send(value)
     
 })
@@ -47,14 +47,15 @@ app.post('/send', async function (req, res, next) {
 })
 
 app.use(express.static(path + '/'))
-MongoClient.connect('mongodb://localhost:27017/chatbd', function (err, database) {
+MongoClient.connect('mongodb://localhost:27017/chatbd', { useNewUrlParser: true, useUnifiedTopology: true }, function (err, database) {
 
     dbUsers = database.db('users')
-    dbChats = database.db('chsats')
+    dbChats = database.db('chats')
+    dbMessage = database.db('message')
     dbInvite = database.db('invite')
     dbReq = database.db('requests')
-    dbfriends = database.db('friends')
-
+    dbFriends = database.db('friends')
+    
     app.listen(8000, function () {
 
     })
