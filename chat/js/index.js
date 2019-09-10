@@ -13,6 +13,7 @@ let dbMessage
 let dbChats
 let dbInvite
 let dbReq
+let dbFriends
 
 let path = __dirname
 path = path.substring(0, path.length - 2)
@@ -27,34 +28,32 @@ app.post('/logIn', async function (req, res, next) {
 
 app.post('/signUp', bodyparser.json())
 app.post('/signUp', async function (req, res, next) {
-    let user = helper.reg(req.body, dbUsers, res)
-    await storage.get({
-        key: await helper.auth(user, dbUsers, res)
-    })
-    
-    console.log(storage.key)
-
+    let user = await helper.reg(req.body, dbUsers, res)
+    let value = JSON.stringify(await helper.auth(req.body, dbUsers, res))
+    res.send(value)
 })
 
 app.post('/getData', bodyparser.json())
 app.post('/getData', async function (req, res, next) {
-    let value = JSON.stringify(req.body, dbUsers, res)
+    let value = JSON.stringify(await helper.getData(localStorage.getItem('key'), dbFriends))
 
     res.send(value)
+    
+})
 
-
+app.post('/send', bodyparser.json())
+app.post('/send', async function (req, res, next) {
+    let value = JSON.stringify(await helper.send(req.body, dbMessage))
 })
 
 app.use(express.static(path + '/'))
 MongoClient.connect('mongodb://localhost:27017/chatbd', function (err, database) {
-    if (err) {
-        return console.log(err)
-    }
 
     dbUsers = database.db('users')
     dbChats = database.db('chsats')
     dbInvite = database.db('invite')
     dbReq = database.db('requests')
+    dbfriends = database.db('friends')
 
     app.listen(8000, function () {
 

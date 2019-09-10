@@ -183,3 +183,14 @@ body{
     display: block;
     width: auto;
 }
+
+#chatPanel{
+    height: 38px;
+    background-color:#17212b;
+    color: #e8ded4;
+}
+
+#chatPanel h5{
+    text-align: center;
+    padding-top:5.5px;
+}

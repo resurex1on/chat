@@ -1,6 +1,6 @@
-$("#btnSign").click(function () {
+$("#btnSign").click(async function () {
     if ($("#inppas").val() === $("#inpsub").val()) {
-        fetch("/signUp", {
+        let value = await fetch("/signUp", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
@@ -10,9 +10,15 @@ $("#btnSign").click(function () {
                 password: $("#inppas").val()
             })
         })
+
+        let id = await value.json()
+        // console.log(value)
+        if(id !== undefined){
+            location.replace('/index.html')
+            localStorage.setItem('key', id)
+        }
     }
     else {
-
         alert('Passwords do not match!')
     }
 
