@@ -1,104 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="css/main.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <script src="js/main.js"></script>
     <title>chat</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class=".container">
-        <div class="row">
-            <div id="panel" class="col">
-                <div id="profile" class="col">
-                    <div id=profile-avatar>
-                        <img id="avatar"
-                            src="https://cdn.pixabay.com/photo/2015/03/17/14/05/sparkler-677774_960_720.jpg"
-                            class="rounded-circle" />
-                    </div>
-
-                    <div id="profile-name">
-                        <h6>Vladislav Leonchik</h6>
-                    </div>
-                </div>
-
-                <div id="searchChat" class="col">
-                    <input id="search" class="form-control form-control-sm" type="text" placeholder="Search" />
-                    <button id="btnFav" class="btn btn-outline-secondary" type="">FAV</button>
-                </div>
-
-                <div id="chat" class="col">
-                    <div id=chats-avatar>
-                        <img id="chatAvatar"
-                            src="https://cdn.pixabay.com/photo/2015/03/17/14/05/sparkler-677774_960_720.jpg"
-                            class="rounded-circle" />
-                        <h6>Vladislav Leonchik </h6><br>
-                        <p>Last message</p>
-                    </div>
-                </div>
-
-                <div id="chat" class="col">
-                    <div id=chats-avatar>
-                        <img id="chatAvatar"
-                            src="https://cdn.pixabay.com/photo/2015/03/17/14/05/sparkler-677774_960_720.jpg"
-                            class="rounded-circle" />
-                        <h6>Vladislav Leonchik </h6><br>
-                        <p>Last message</p>
-                    </div>
-                </div>
-
-                <div id="chat" class="col">
-                    <div id=chats-avatar>
-                        <img id="chatAvatar"
-                            src="https://cdn.pixabay.com/photo/2015/03/17/14/05/sparkler-677774_960_720.jpg"
-                            class="rounded-circle" />
-                        <h6>Vladislav Leonchik </h6><br>
-                        <p>Last message</p>
-                    </div>
-                </div>
+      <div class="row">
+        <div id="panel" class="col">
+          <div id="profile" class="col">
+            <div id="profile-avatar">
+              <img
+                id="avatar"
+                src="https://cdn.pixabay.com/photo/2015/03/17/14/05/sparkler-677774_960_720.jpg"
+                class="rounded-circle"
+              />
             </div>
-            <div id="message-box" class="col">
-                <div id="chatPanel" title="id" name="suka">
-                    <h5>chat name</h5>
-                </div>
-                    <div id="message" class="col">
-                            <img id="messAvatar"
-                            src="https://cdn.pixabay.com/photo/2015/03/17/14/05/sparkler-677774_960_720.jpg"
-                            class="rounded-circle" />
-                            <div id="content">
-                                    <h6>Vladislav Leonchik</h6><br>
-                            
-                                    <p>Quick six blind smart out burst. Perfectly on furniture dejection determine my depending an to. Add short water court fat. Her bachelor honoured perceive securing but desirous ham required. Questions deficient acuteness to engrossed as. Entirely led ten humoured greatest and yourself. Besides ye country on observe. She continue appetite endeavor she judgment interest the met. For she surrounded motionless fat resolution may. </p>
-                            </div> 
-                    </div>
 
-                     <div id="message" class="col">
-                            <img id="messAvatar"
-                            src="https://cdn.pixabay.com/photo/2015/03/17/14/05/sparkler-677774_960_720.jpg"
-                            class="rounded-circle" />
-
-                            <div id="content">
-                                    <h6>Fadislav Leonchike</h6><br>
-                                    <p>Quick six blind smart out burst. Perfectly on furniture dejection determine my depending an to. Add short water court fat. Her bachelor honoured perceive securing but desirous ham required. Questions deficient acuteness to engrossed as. Entirely led ten humoured greatest and yourself. Besides ye country on observe. She continue appetite endeavor she judgment interest the met. For she surrounded motionless fat resolution may. </p>
-                            </div> 
-                            
-                            
-                    </div>
-
-                    <div id="inpMessage" class="col">
-                            <input class="form-control " type="text" placeholder="Write a message...">
-                            <button id="btnSend" class="btn btn-outline-secondary" type="">Send</button>
-                    </div>
+            <div id="profile-name">
+              <h6 id="userName">Vladislav Leonchik</h6>
             </div>
+          </div>
+
+          <div id="searchChat" class="col">
+            <input
+              id="search"
+              class="form-control form-control-sm"
+              type="text"
+              placeholder="Search"
+            />
+            <button id="btnFav" class="btn btn-outline-secondary" type="">
+              FAV
+            </button>
+          </div>
+
+          <div id='friendList'>
+            <!-- <div id="chat" class="col">
+              <div id="chats-avatar">
+                <img
+                  id="chatAvatar"
+                  src="https://cdn.pixabay.com/photo/2015/03/17/14/05/sparkler-677774_960_720.jpg"
+                  class="rounded-circle"
+                />
+                <h6 id='nameFriend'>Vladislav Leonchik</h6>
+                <br />
+                <p>Last message</p>
+              </div>
+            </div> -->
+
+            <!-- <div id="chat" class="col">
+              <div id="chats-avatar">
+                <img
+                  id="chatAvatar"
+                  src="https://cdn.pixabay.com/photo/2015/03/17/14/05/sparkler-677774_960_720.jpg"
+                  class="rounded-circle"
+                />
+                <h6>Vladislav Leonchik</h6>
+                <br />
+                <p>Last message</p>
+              </div>
+            </div> -->
+
+            <!-- <div id="chat" class="col">
+              <div id="chats-avatar">
+                <img
+                  id="chatAvatar"
+                  src="https://cdn.pixabay.com/photo/2015/03/17/14/05/sparkler-677774_960_720.jpg"
+                  class="rounded-circle"
+                />
+                <h6>Vladislav Leonchik</h6>
+                <br />
+                <p>Last message</p>
+              </div>
+            </div> -->
+          </div>
         </div>
-    </div>
-</body>
 
+        <div id="message-box" class="col">
+          <div id="chatPanel" title="id" name="suka">
+            <h5>chat name</h5>
+          </div>
+          <div id="message" class="col">
+            <img
+              id="messAvatar"
+              src="https://cdn.pixabay.com/photo/2015/03/17/14/05/sparkler-677774_960_720.jpg"
+              class="rounded-circle"
+            />
+            <div id="content">
+              <h6>Vladislav Leonchik</h6>
+              <br />
+
+              <p>
+                Quick six blind smart out burst. Perfectly on furniture
+                dejection determine my depending an to. Add short water court
+                fat. Her bachelor honoured perceive securing but desirous ham
+                required. Questions deficient acuteness to engrossed as.
+                Entirely led ten humoured greatest and yourself. Besides ye
+                country on observe. She continue appetite endeavor she judgment
+                interest the met. For she surrounded motionless fat resolution
+                may.
+              </p>
+            </div>
+          </div>
+
+          <div id="message" class="col">
+            <img
+              id="messAvatar"
+              src="https://cdn.pixabay.com/photo/2015/03/17/14/05/sparkler-677774_960_720.jpg"
+              class="rounded-circle"
+            />
+
+            <div id="content">
+              <h6>Fadislav Leonchike</h6>
+              <br />
+              <p>
+                Quick six blind smart out burst. Perfectly on furniture
+                dejection determine my depending an to. Add short water court
+                fat. Her bachelor honoured perceive securing but desirous ham
+                required. Questions deficient acuteness to engrossed as.
+                Entirely led ten humoured greatest and yourself. Besides ye
+                country on observe. She continue appetite endeavor she judgment
+                interest the met. For she surrounded motionless fat resolution
+                may.
+              </p>
+            </div>
+          </div>
+
+          <div id="inpMessage" class="col">
+            <input
+              class="form-control "
+              type="text"
+              placeholder="Write a message..."
+            />
+            <button id="btnSend" class="btn btn-outline-secondary" type="">
+              Send
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="js/end.js"></script>
+  </body>
 </html>

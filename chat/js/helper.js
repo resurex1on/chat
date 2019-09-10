@@ -44,7 +44,7 @@ module.exports = {
         }
 
         for (const j of friends) {
-            if (j['first'] === id || j['second'] === id)
+            if (j['first'] == id || j['second'] == id)
                 friendsData.push({
                     first: j['first'],
                     second: j['second']
@@ -54,13 +54,13 @@ module.exports = {
         
 
         for (const j of friendsData) {
-            if (j['first'] === id) {
+            if (j['first'] == id) {
                 idFriend.push({
-                    idFriend: j['first']
+                    idFriend: j['second']
                 })
             } else {
                 idFriend.push({
-                    idFriend: j['second']
+                    idFriend: j['first']
                 })
             }
 
@@ -85,7 +85,7 @@ module.exports = {
        
         return {
             user: userData,
-            friends: friendsData
+            friends: listFriends
         }
 
     },
