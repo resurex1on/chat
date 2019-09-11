@@ -46,6 +46,15 @@ app.post('/send', async function (req, res, next) {
     let value = JSON.stringify(await helper.send(req.body, dbMessage))
 })
 
+app.post('/getMessages', bodyparser.json())
+app.post('/getMessages', async function (req, res, next) {
+
+    let value = JSON.stringify(await helper.getMessages(req.body, dbMessage))
+    await console.log(value)
+    res.send(value)
+    
+})
+
 app.use(express.static(path + '/'))
 MongoClient.connect('mongodb://localhost:27017/chatbd', { useNewUrlParser: true, useUnifiedTopology: true }, function (err, database) {
 

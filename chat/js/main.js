@@ -4,7 +4,7 @@ async function getData(val) {
     if (val === null || val === undefined) {
         location.replace('logIn.html')
     } else {
-        let value =await  fetch("/getData", {
+        let value = await  fetch("/getData", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
@@ -15,5 +15,7 @@ async function getData(val) {
         })
         return await value.json()
     } 
-}
+}   
+
+
 

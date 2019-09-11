@@ -4,6 +4,27 @@ const async = require('async')
 
 module.exports = {
 
+    async getMessages(data, dbMes) {
+        let messages = []
+        return new Promise((resolve, reject) => {
+            dbMes.collection('message').find({}).toArray(async function (err, res) {
+                if (err)
+                    res.status(500)
+                else {
+                    for (let i = 0; i < res.length; i++) {
+                        console.log(res)
+                        await messages.push({
+                            from: res[i]['from'],
+                            text: res[i]['text']
+                        })
+                    }
+
+                }
+                resolve(messages)
+            })
+        })
+    },
+
     async getUsers(dbUs) {
         return new Promise((resolve, reject) => {
             dbUs.collection('users').find({}).toArray(async function (err, res) {
@@ -51,8 +72,6 @@ module.exports = {
                 })
         }
 
-        
-
         for (const j of friendsData) {
             if (j['first'] == id) {
                 idFriend.push({
@@ -68,21 +87,18 @@ module.exports = {
 
         let listFriends = []
         for (let i = 0; i < idFriend.length; i++) {
-            
+
             for (const j of users) {
-                if (j['_id'] == idFriend[i]['idFriend'])
-                {
-                    console.log('work')
+                if (j['_id'] == idFriend[i]['idFriend']) {
                     await listFriends.push({
                         name: j['login'],
-                        img: j['img']
+                        img: j['img'],
+                        id: j['_id']
                     })
                 }
-                   
+
             }
         }
-        console.log(userData)
-       
         return {
             user: userData,
             friends: listFriends
