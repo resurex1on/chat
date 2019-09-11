@@ -41,7 +41,7 @@ $("#btnSend").click(async function () {
             text: document.getElementById('chatPanel').text
         })
     })
-    let data = await value.json()
+    
 })
 
 $('body').on('click', '#chat', async function () {
@@ -56,5 +56,41 @@ $('body').on('click', '#chat', async function () {
             text: document.getElementById('chatPanel').text
         })
     })
-    let data = await value.json()
+    let messages = await value.json()
+
+    for (let i = 0; i < messages.length; i++) {
+        
+        let message = document.createElement('div')
+        message.id = 'message'
+        message.classList.add('col')
+
+        let messAvatar = document.createElement('img')
+        messAvatar.id = 'messAvatar'
+        messAvatar.src = 'https://cdn.pixabay.com/photo/2015/03/17/14/05/sparkler-677774_960_720.jpg'
+        messAvatar.classList.add('rounded-circle')
+
+        let content = document.createElement('div')
+        content.id = 'content'
+        
+
+        let userName = document.createElement('h6')
+        console.log()
+        userName.textContent = messages[i]['from']
+
+        let br = document.createElement('br')
+
+        let p = document.createElement('p')
+        p.textContent = messages[i]['text']
+
+        message.appendChild(messAvatar)
+        message.appendChild(content)
+        content.appendChild(userName)
+        content.appendChild(br)
+        content.appendChild(p)
+
+        document.getElementById('message-box').appendChild(message)
+    }
+    
+
+    console.log(data)
 })

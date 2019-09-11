@@ -12,7 +12,6 @@ module.exports = {
                     res.status(500)
                 else {
                     for (let i = 0; i < res.length; i++) {
-                        console.log(res)
                         await messages.push({
                             from: res[i]['from'],
                             text: res[i]['text']
